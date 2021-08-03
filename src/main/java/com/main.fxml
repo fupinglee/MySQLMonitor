@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.MainController">
+   <children>
+      <Label layoutX="37.0" layoutY="27.0" text="Host:" />
+      <TextField fx:id="textField_host" layoutX="93.0" layoutY="22.0" prefWidth="178.0" text="127.0.0.1" />
+      <Label layoutX="284.0" layoutY="27.0" text="Port:" />
+      <TextField fx:id="textField_port" layoutX="323.0" layoutY="22.0" prefHeight="27.0" prefWidth="113.0" text="3306" />
+      <Label layoutX="452.0" layoutY="27.0" text="User:" />
+      <TextField fx:id="textField_user" layoutX="495.0" layoutY="23.0" prefHeight="27.0" prefWidth="136.0" text="root" />
+      <Label layoutX="642.0" layoutY="27.0" text="Pass:" />
+      <CheckBox fx:id="cb_showPass" layoutX="846.0" layoutY="27.0" mnemonicParsing="false" text="显示" />
+      <TextField fx:id="textField_password" layoutX="680.0" layoutY="22.0" prefHeight="27.0" prefWidth="157.0" text="root" />
+      <Button fx:id="testConn" layoutX="39.0" layoutY="66.0" mnemonicParsing="false" text="数据库连接" />
+      <Button fx:id="btn_logOn" layoutX="152.0" layoutY="66.0" mnemonicParsing="false" text="下断" />
+      <Button fx:id="btn_update" layoutX="244.0" layoutY="66.0" mnemonicParsing="false" text="更新" />
+
+      <Button fx:id="btn_clear" layoutX="329.0" layoutY="66.0" mnemonicParsing="false" text="清空" />
+      <Label layoutX="452.0" layoutY="71.0" prefHeight="17.0" prefWidth="44.0" text="搜索：" />
+      <TextField fx:id="textField_filter" layoutX="495.0" layoutY="66.0" />
+      <TableView fx:id="tableView" layoutX="25.0" layoutY="109.0" prefHeight="433.0" prefWidth="955.0">
+        <columns>
+           <TableColumn fx:id="tableCol_id" prefWidth="65.0" resizable="false" text="ID" />
+          <TableColumn fx:id="tableCol_date" prefWidth="140.0" resizable="false" text="Date" />
+          <TableColumn fx:id="tableCol_sql" prefWidth="750.0" text="SQL" />
+        </columns>
+      </TableView>
+      <Label fx:id="label_date" layoutX="37.0" layoutY="560.0" prefHeight="17.0" prefWidth="220.0" />
+      <Label fx:id="label_state" layoutX="650.0" layoutY="560.0" prefHeight="17.0" prefWidth="300.0" />
+   </children>
+</AnchorPane>

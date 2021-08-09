@@ -24,16 +24,16 @@
       <Button fx:id="btn_update" layoutX="244.0" layoutY="66.0" mnemonicParsing="false" text="更新" />
 
       <Button fx:id="btn_clear" layoutX="329.0" layoutY="66.0" mnemonicParsing="false" text="清空" />
-      <Label layoutX="452.0" layoutY="71.0" prefHeight="17.0" prefWidth="44.0" text="搜索：" />
+      <Label layoutX="452.0" layoutY="71.0" prefHeight="17.0" prefWidth="50.0" text="搜索：" />
       <TextField fx:id="textField_filter" layoutX="495.0" layoutY="66.0" />
       <TableView fx:id="tableView" layoutX="25.0" layoutY="109.0" prefHeight="433.0" prefWidth="955.0">
         <columns>
            <TableColumn fx:id="tableCol_id" prefWidth="65.0" resizable="false" text="ID" />
-          <TableColumn fx:id="tableCol_date" prefWidth="140.0" resizable="false" text="Date" />
-          <TableColumn fx:id="tableCol_sql" prefWidth="750.0" text="SQL" />
+          <TableColumn fx:id="tableCol_date" prefWidth="160.0" resizable="false" text="Date" />
+          <TableColumn fx:id="tableCol_sql" prefWidth="730.0" text="SQL" />
         </columns>
       </TableView>
-      <Label fx:id="label_date" layoutX="37.0" layoutY="560.0" prefHeight="17.0" prefWidth="220.0" />
+      <Label fx:id="label_date" layoutX="37.0" layoutY="560.0" prefHeight="17.0" prefWidth="300.0" />
       <Label fx:id="label_state" layoutX="650.0" layoutY="560.0" prefHeight="17.0" prefWidth="300.0" />
    </children>
 </AnchorPane>

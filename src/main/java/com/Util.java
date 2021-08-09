@@ -37,7 +37,7 @@ public class Util {
         try {
             // MySQL 8.0 以下版本 - JDBC 驱动名及数据库 URL
 
-            DB_URL = String.format("jdbc:mysql://%s:%s/mysql",dbhost,dbport);
+            DB_URL = String.format("jdbc:mysql://%s:%s/mysql?serverTimezone=UTC",dbhost,dbport);
             Class.forName(JDBC_DRIVER);
 
         }catch (Exception e){

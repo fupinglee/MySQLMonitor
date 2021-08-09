@@ -75,6 +75,7 @@ public class MainController {
 
     @FXML
     private Label label_state;
+    private ChangeListener<String> changeListener;
     @FXML
     public void initialize() {
         initConfigComponents();
@@ -96,7 +97,7 @@ public class MainController {
             constructor.setAccessible(true);
             Object tooltipBehavior = constructor.newInstance(
                     new Duration(250),  //open
-                    new Duration(500000), //visible
+                    new Duration(50000), //visible
                     new Duration(200),  //close
                     false);
             Field fieldBehavior = obj.getClass().getDeclaredField("BEHAVIOR");
@@ -175,7 +176,7 @@ public class MainController {
         FilteredList<ResultTask> filteredList = new FilteredList<>(list, p -> true);
 
 
-        ChangeListener<String> changeListener = (observable, oldValue, newValue) -> {
+        changeListener = (observable, oldValue, newValue) -> {
             filteredList.setPredicate(resultTask -> {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
@@ -245,7 +246,7 @@ public class MainController {
                         row.setEditable(true);
                     }else if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
 
-                        Tooltip tt = new Tooltip();
+                        final Tooltip tt = new Tooltip();
                         tt.setStyle("-fx-font: normal bold 13 Langdon; "
                                 + "-fx-base: #AE3522; "
                                 + "-fx-text-fill: orange;");
@@ -254,7 +255,7 @@ public class MainController {
                         tt.setWrapText(true);
                         tt.setMaxWidth(300);
 
-                        tableView.setTooltip(tt);
+                        row.setTooltip(tt);
 
                     }
                 }
@@ -279,7 +280,10 @@ public class MainController {
         dbHost = textField_host.textProperty().get().trim();
         dbPort = Integer.parseInt(textField_port.textProperty().get().trim());
         dbUser = textField_user.textProperty().get().trim();
-
+        btn_clear.setDisable(true);
+        btn_update.setDisable(true);
+        btn_logOn.setDisable(true);
+        clear(changeListener);
         Connection conn = Util.getConn(dbHost, dbPort, dbUser, dbpass);
         if (conn != null) {
             label_state.setText((String.format("[%s]：%s", Util.ftime(), "数据库连接成功")));
@@ -289,9 +293,7 @@ public class MainController {
         } else {
             label_state.setText((String.format("[%s]：%s", Util.ftime(), "数据库连接失败")));
             showAlert(Alert.AlertType.ERROR, "错误", "数据库连接失败");
-            btn_clear.setDisable(true);
-            btn_update.setDisable(true);
-            btn_logOn.setDisable(true);
+
         }
 
         return conn;
